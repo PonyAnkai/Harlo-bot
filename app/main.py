@@ -12,7 +12,7 @@ import json
 import os
 
 # Load configurate file
-with open("./app/config.json", encoding="UTF-8") as fp: config = json.load(fp)
+with open("config.json", encoding="UTF-8") as fp: config = json.load(fp)
 ENV = dotenv_values()
 
 bot = commands.Bot (
@@ -33,7 +33,7 @@ async def init_api():
 
 async def main():
     BASEDIR = f"{os.getcwd()}\\"
-    for item in os.listdir(BASEDIR + f"app\\cogs\\"):
+    for item in os.listdir(BASEDIR + f"cogs\\"):
         try: bot.load_extension(f"cogs.{item.replace('.py', '')}")
         except: pass    
 
