@@ -32,8 +32,8 @@ async def init_api():
     await server.serve()
 
 async def main():
-    BASEDIR = f"{os.getcwd()}\\"
-    for item in os.listdir(BASEDIR + f"cogs\\"):
+    BASEDIR = f"{os.getcwd()}/"
+    for item in os.listdir(BASEDIR + f"/cogs"):
         try: bot.load_extension(f"cogs.{item.replace('.py', '')}")
         except: pass    
 
