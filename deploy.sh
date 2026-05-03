@@ -10,4 +10,4 @@ echo "[2] Setup requirements"
 pip install -r requirements.txt
 
 echo "[3] Restart site ponyglory.ru"
-sudo systemctl restart ponyglory
+sudo systemctl restart bot-harlo
