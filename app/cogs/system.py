@@ -21,7 +21,7 @@ class SYSTEM(commands.Cog):
             channel = await guild.fetch_channel(1460806945865863336)
             
             user = await self.bot.fetch_user(int(data["user_uid"]))
-            # await user.send("Ваша анкета была принята для участия в игре. Ожидайте начала 5-го сезона.")
+            await user.send("Ваша анкета была принята для участия в игре. Ожидайте начала 5-го сезона.")
             
             file_path = BASE_DIR / "data" / "reg-data.json"
             with open(file_path, mode="r", encoding="utf-8") as fp:
@@ -52,7 +52,8 @@ class SYSTEM(commands.Cog):
             """
 
             if isinstance(channel, (TextChannel, NewsChannel)):
-                await channel.send(embed=embed)
+                user_pony = await self.bot.fetch_user(374061361606688788)
+                await user_pony.send(embed=embed)
 
 
 #! LOADED FUNCTIONS
