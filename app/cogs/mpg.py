@@ -10,7 +10,7 @@ class MPG(commands.Cog):
         self.bot = bot
 
     @commands.command(name="mpg-reg")
-    async def mpg_registrations(self, ctx):
+    async def mpg_registrations(self, ctx: commands.Context):
 
         if ctx.guild != None: return await ctx.send("Для приватности команда работает только в лс")
 

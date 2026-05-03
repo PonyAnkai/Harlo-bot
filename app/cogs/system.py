@@ -55,6 +55,9 @@ class SYSTEM(commands.Cog):
                 user_pony = await self.bot.fetch_user(374061361606688788)
                 await user_pony.send(embed=embed)
 
+    @commands.command(name="ping")
+    async def ping(self, ctx):
+        return await ctx.send("Pong")
 
 #! LOADED FUNCTIONS
 def setup(bot):
