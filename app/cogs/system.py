@@ -30,7 +30,7 @@ class SYSTEM(commands.Cog):
             fp.seek(0)
             await user_pony.send(file=disnake.File(fp, "data.json"))
             if isinstance(channel, (TextChannel, NewsChannel)):
-                await channel.send(f"Игрок {user.global_name} прошел регистрацию")      
+                await channel.send(f"🟩 Игрок {user.global_name} прошел регистрацию")      
 
     @commands.command(name="ping")
     async def ping(self, ctx):

@@ -23,7 +23,7 @@ class MPG(commands.Cog):
 
             await ctx.send(f"Ваша ссылка регистрации: {responce['one_time_link']}\n-# УЧТИТЕ! Ссылка однаразовая и если вы потеряли или использовали текущую, но не закончили регистрацию, вы сможете зарегистрировать новую, но если вы закончили регистрацию, вы больше не сможете зарегистрироваться.")
             if isinstance(channel, (TextChannel, NewsChannel)):
-                await channel.send(f"Игрок {ctx.author.global_name} запросил ссылку регистрации")
+                await channel.send(f"🟨 Игрок {ctx.author.global_name} запросил ссылку регистрации")
         elif req.status_code == 400:
             await ctx.send(f"Вы уже зарегистрированны в системе.\n-# Если вы этого не делали, но получили такой ответ, обратитесь к администратору.")
         else:
