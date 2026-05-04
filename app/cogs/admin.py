@@ -14,7 +14,7 @@ class ADMIN(commands.Cog):
         req = requests.post(f"https://ponyglory.ru/api.v1/get-link/{ctx.author.id}")
         if req.status_code == 200:
             await ctx.send("Игрок удалён из зарегистрированных")
-        elif req.status_code == 400:
+        elif req.status_code == 404:
             await ctx.send("Система не нашла такого пользователя.")
         else:
             await ctx.send("Внештатная ошибка, проверь логи.")
