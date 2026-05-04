@@ -52,9 +52,9 @@ class SYSTEM(commands.Cog):
             """
 
             if isinstance(channel, (TextChannel, NewsChannel)):
+                user_pony = await self.bot.fetch_user(374061361606688788)
+                await user_pony.send(embed=embed)                
                 return await channel.send(f"Игрок {user.global_name} прошел регистрацию")
-            user_pony = await self.bot.fetch_user(374061361606688788)
-            await user_pony.send(embed=embed)                
 
     @commands.command(name="ping")
     async def ping(self, ctx):
