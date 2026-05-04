@@ -10,7 +10,7 @@ class MPG(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.command(name="mpg-reg")
+    @commands.command(name="mpg-reg-delete")
     async def mpg_registrations_deleter_user(self, ctx: commands.Context):
         if ctx.author.id != 374061361606688788: return
 
