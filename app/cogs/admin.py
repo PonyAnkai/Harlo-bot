@@ -11,7 +11,8 @@ class ADMIN(commands.Cog):
     async def mpg_registrations_deleter_user(self, ctx: commands.Context):
         if ctx.author.id != 374061361606688788: return
 
-        req = requests.post(f"https://ponyglory.ru/api.v1/get-link/{ctx.author.id}/")
+        try: req = requests.post(f"https://ponyglory.ru/api.v1/get-link/{int(str(ctx.message).split()[1])}/")
+        except: await ctx.send("Некорректный запрос.")
         if req.status_code == 200:
             await ctx.send("Игрок удалён из зарегистрированных")
         elif req.status_code == 404:
