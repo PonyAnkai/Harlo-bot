@@ -12,7 +12,7 @@ class ADMIN(commands.Cog):
         if ctx.author.id != 374061361606688788: return
 
         try: 
-            req = requests.post(f"https://ponyglory.ru/api.v1/link/{str(ctx.message.content).split()[1]}/")
+            req = requests.post(f"https://ponyglory.ru/api.v1/link/{str(ctx.message.content).split()[1]}")
 
             if req.status_code == 200:
                 await ctx.send("Игрок удалён из зарегистрированных")
