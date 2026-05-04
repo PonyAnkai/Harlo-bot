@@ -1,12 +1,9 @@
 import disnake
 from disnake.ext import commands
-from disnake import TextChannel, NewsChannel
 
 import requests
-import asyncio
-import json
 
-class MPG(commands.Cog):
+class ADMIN(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
@@ -22,4 +19,4 @@ class MPG(commands.Cog):
 
 #! LOADED FUNCTIONS
 def setup(bot):
-    bot.add_cog(MPG(bot))
+    bot.add_cog(ADMIN(bot))
