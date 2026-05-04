@@ -29,38 +29,8 @@ class SYSTEM(commands.Cog):
             fp = BytesIO(json_bytes)
             fp.seek(0)
             await user_pony.send(file=disnake.File(fp, "data.json"))
-            
-            file_path = BASE_DIR / "data" / "reg-data.json"
-            with open(file_path, mode="r", encoding="utf-8") as fp:
-                static_data = json.load(fp)
-
-
-            shop = ""
-            for item in data['shop_item']:
-                if data['shop_item'][item] != 0:
-                    shop += f"• {static_data['shop_item'][str(data['shop_item'][item][0])][str(data['shop_item'][item][1])]['name']}\n" 
-
-            embed = disnake.Embed(title="Тестирование", )
-            embed.description = ""
-            embed.description += ""
-            embed.description = f"""
-                Пользователь: {user.global_name}\n
-                Выбранная раса: {data['race']['name']}
-                Сложность: {data['difficulty']}
-                Название: {data['country_name']}
-                Население: {data['population']}
-                Геном расы: {static_data['genomes'][data['genome']]['name'] if data['genome'] else 'Нет'}
-                Первый слот хорошей особенности: {static_data['traits'][str(data['good_traits']['1'])]['good']['name'] if data['good_traits']['1'] != 0 else 'Пусто'}
-                Второй слот хорошей особенности: {static_data['traits'][str(data['good_traits']['2'])]['good']['name'] if data['good_traits']['2'] != 0 else 'Пусто'}
-                Первый слот плохой особенности: {static_data['traits'][str(data['bad_traits']['1'])]['bad']['name'] if data['bad_traits']['1'] != 0 else 'Пусто'}
-                Второй слот плохой особенности: {static_data['traits'][str(data['bad_traits']['2'])]['bad']['name'] if data['bad_traits']['2'] != 0 else 'Пусто'}
-                Магазинные предметы:
-                {shop}
-            """
-
             if isinstance(channel, (TextChannel, NewsChannel)):
-                await user_pony.send(embed=embed)                
-                return await channel.send(f"Игрок {user.global_name} прошел регистрацию")
+                await channel.send(f"Игрок {user.global_name} прошел регистрацию")      
 
     @commands.command(name="ping")
     async def ping(self, ctx):
