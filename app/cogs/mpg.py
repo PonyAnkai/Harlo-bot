@@ -32,7 +32,7 @@ class MPG(commands.Cog):
     async def user_base_anket(self, ctx: commands.Context):
         user_uid = ctx.author.id
 
-        req = requests.get(f"http://127.0.0.1:8090/base-ankets/{user_uid}")
+        req = requests.get(f"http://127.0.0.1:8090/api/v1/private/base-ankets/{user_uid}")
         if req.status_code == 200:
             file_stream = io.BytesIO(req.content)
             discord_file = disnake.File(fp=file_stream, filename="UserData.json")
