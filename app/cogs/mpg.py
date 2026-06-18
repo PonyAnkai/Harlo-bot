@@ -34,7 +34,7 @@ class MPG(commands.Cog):
 
         req = requests.get(f"http://127.0.0.1:8090/api/v1/private/base-ankets/{user_uid}")
         if req.status_code == 200:
-            file_stream = io.BytesIO(req.content)
+            file_stream = io.BytesIO(req.content.decode("utf-8").encode("utf-8"))
             discord_file = disnake.File(fp=file_stream, filename="UserData.json")
             await ctx.send(file=discord_file)
         else:
