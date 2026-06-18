@@ -16,7 +16,7 @@ class MPG(commands.Cog):
 
         if ctx.guild != None: return await ctx.send("Для приватности команда работает только в лс")
 
-        req = requests.get(f"https://ponyglory.ru/api.v1/link/{ctx.author.id}")
+        req = requests.get(f"https://ponyglory.ru/api/v1/public/link/{ctx.author.id}")
         if req.status_code == 200:
             responce = json.loads(req.content.decode("utf-8"))
 
