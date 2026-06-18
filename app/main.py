@@ -23,7 +23,7 @@ bot = commands.Bot (
     help_command=None,
 )
 app_fastAPI = FastAPI()
-app_fastAPI.include_router(trigers.router, prefix="/apibot.v1")
+app_fastAPI.include_router(trigers.router, prefix="/apibot/v1")
 app_fastAPI.state.bot = bot
 
 async def init_api():
