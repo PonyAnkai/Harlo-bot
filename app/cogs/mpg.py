@@ -35,7 +35,10 @@ class MPG(commands.Cog):
         req = requests.get(f"http://127.0.0.1:8090/api/v1/private/base-ankets/{user_uid}")
         if req.status_code == 200:
             responce = json.loads(req.content.decode("utf-8"))
-            await ctx.send(f"```json\n{responce}\n```")
+
+            json_text = json.dumps(responce, ensure_ascii=False, indent=2)
+
+            await ctx.send(f"```json\n{json_text}\n```")
         else:
             await ctx.send("Возможно вас нет в базе, либо вы не участник GARM.")
 
