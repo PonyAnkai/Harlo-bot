@@ -14,6 +14,8 @@ class MPG(commands.Cog):
     @commands.command(name="registration", aliases=["mreg"])
     async def mpg_registrations(self, ctx: commands.Context):
 
+        return await ctx.send("Регистрация была завершена.")
+
         if ctx.guild != None: return await ctx.send("Для приватности команда работает только в лс")
 
         req = requests.get(f"https://ponyglory.ru/api/v1/public/link/{ctx.author.id}")
