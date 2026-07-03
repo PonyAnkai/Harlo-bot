@@ -11,7 +11,7 @@ from io import BytesIO
 
 BASE_DIR = Path(__file__).resolve().parent
 
-class SYSTEM(commands.Cog):
+class GARM(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
@@ -31,6 +31,21 @@ class SYSTEM(commands.Cog):
     async def ping(self, ctx):
         return await ctx.send("Pong")
 
+class SYSTEM(commands.Cog):
+    def __init__(self, bot: commands.Bot):
+        self.bot = bot
+
+    async def site_loger(self, data:dict):
+        guild = await self.bot.fetch_guild(1199488197885968515)
+        channel = await guild.fetch_channel(1460806945865863336)
+        if not isinstance(channel, disnake.TextChannel): return
+
+        if data["level"] == "WARNING":
+            await channel.send(embed=disnake.Embed(title=f"{data['level']}", description=data["message"]))
+        elif data["level"] == "ERROR":
+            await channel.send(embed=disnake.Embed(title=f"{data['level']}", description=data["clean_error"]))
+
 #! LOADED FUNCTIONS
 def setup(bot):
+    bot.add_cog(GARM(bot))
     bot.add_cog(SYSTEM(bot))
