@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from fastapi import Request
 from fastapi import status
 
-from app.cogs import loggers
+from cogs import loggers
 
 
 router = APIRouter()
